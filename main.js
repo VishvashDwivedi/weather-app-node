@@ -8,7 +8,7 @@ const func = require("./api_req/request");
 console.log(__dirname);
 // const filepath = path.join(__dirname,"/htmls/");
 
-
+const PORT = process.env.PORT || 8080;
 
 // for static pages ... -> No Dynamic content
 app.use("/css",express.static(path.join(__dirname,"/views/css")));
@@ -106,6 +106,6 @@ app.get("/*",(req,res) => {
 
 
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
     console.log("Running...");
 });

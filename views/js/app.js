@@ -11,7 +11,7 @@ const fun = (city) => {
     document.querySelector(".temp").innerHTML = "Loading...";
 
     // fetch("https://api.openweathermap.org/data/2.5/weather?q="+ city +"&appid=be9575da2c09c49fb8cfe3af184f5cc6");
-    fetch(`http://localhost:8080/weather?address=${city}`)
+    fetch(`/weather?address=${city}`)
     .then( (res) => {
         res.json().then( (data) => {
             
