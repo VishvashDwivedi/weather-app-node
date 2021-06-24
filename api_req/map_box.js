@@ -1,17 +1,18 @@
 const request = require("request");
+require('dotenv').config();
 
 const geocode = (city,callback) => {
 
-    const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+ city +".json?access_token=pk.eyJ1IjoidmlzaHdhcy0yNiIsImEiOiJja2FoOTVsajEwZTJvMnNveXg3eWQyeHgzIn0.rRSnn8spk4GT5t8pJTbQxQ";
+    const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+ city +".json?access_token="+`${process.env.API_ID2}`;
 
     request({ url:url,json:true },(err,res) => {
 
         if(err)     callback("Unable to connect !", undefined);
-        
-        else if(res.body.features.length === 0)     callback("Location not found !",undefined);
-        
+
+        else if(res.body.message || res.body.error || res.body.features.length === 0)
+            callback("Location not found !",undefined);
+
         else{
-        
                 callback(undefined,{
                     latitude:res.body.features[0].center[1],
                     longitude:res.body.features[0].center[0],
