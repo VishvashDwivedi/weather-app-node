@@ -3,7 +3,7 @@ require('dotenv').config();
 
 const geocode = (city,callback) => {
 
-    const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+ city +".json?access_token="+`${process.env.API_ID2}`;
+    const url = "https://api.mapbox.com/geocoding/v5/mapbox.places/"+ city +".json?access_token="+"pk.eyJ1IjoidmlzaHdhcy0yNiIsImEiOiJja2FoOTVsajEwZTJvMnNveXg3eWQyeHgzIn0.rRSnn8spk4GT5t8pJTbQxQ";
 
     request({ url:url,json:true },(err,res) => {
 

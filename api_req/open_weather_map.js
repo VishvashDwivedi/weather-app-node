@@ -2,8 +2,7 @@ const request = require("request");
 require('dotenv').config();
 
 const getweather = (data,callback) => {
-    // be9575da2c09c49fb8cfe3af184f5cc6
-    var url1 = "http://api.openweathermap.org/data/2.5/weather?" + `lat=${data.latitude}` + "&" + `lon=${data.longitude}` + `&appid=${process.env.API_ID1}`;
+    var url1 = "http://api.openweathermap.org/data/2.5/weather?" + `lat=${data.latitude}` + "&" + `lon=${data.longitude}` + "&appid=be9575da2c09c49fb8cfe3af184f5cc6";
 
     request({ url:url1,json:true } , (err,res) => {
 
